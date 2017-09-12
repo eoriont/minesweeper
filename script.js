@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let h = WIDTH/squaresHeight;
     let gameState = 1;
     let bombAmount = 0;
-    let canCheat = false;
+    let canCheat = true;
     makeSquares();
 
     function getMousePos(e) {
@@ -173,6 +173,10 @@ document.addEventListener("DOMContentLoaded", function() {
         uncoverZeros(getSquare(square.x, square.y+1));
         uncoverZeros(getSquare(square.x+1, square.y));
         uncoverZeros(getSquare(square.x-1, square.y));
+        uncoverZeros(getSquare(square.x+1, square.y+1));
+        uncoverZeros(getSquare(square.x-1, square.y+1));
+        uncoverZeros(getSquare(square.x+1, square.y-1));
+        uncoverZeros(getSquare(square.x-1, square.y-1));
     }
 
     function getSquare(x, y) {
